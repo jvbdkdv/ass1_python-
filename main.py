@@ -22,4 +22,4 @@ print ("Cost per km: ",cost_per_km,"KZT")
 print("=" * 30)
 
 print("Trip longer than 300 km: ",distance> 300)
-print ("Fuel cost above 5000 KZT: " , fuel_cost > 5000)
+print ("Ful cost above 5000 KZT: " , fuel_cost > 5000)
