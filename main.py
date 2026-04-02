@@ -1,25 +1,37 @@
 driver_name = input("Enter driver name: ")
+destination = input("Enter destination: ")
 distance = float(input("Enter your distance (km): "))
 consumption = float(input("Enter fuel consumption (L/100km): "))
-fuel_price = float(input("Enter fuel price (KZT/L): "))
+price = float(input("Enter fuel price (KZT/L): "))
 
-litres_needed = (distance * consumption) / 100
-fuel_cost = litres_needed * fuel_price
-cost_per_km = fuel_cost / distance
+fuel_cost = (distance/100) * consumption
+
+if distance < 100:
+    category = "Short trip"
+elif distance < 500:
+    category = "Medium trip"
+else:
+    category = "Long trip"
 
 print("=" * 30)
-print("         ROAD TRIP SUMMARY")
-print("=" * 30)
-print("Driver: ",driver_name)
-print("Distance: ",distance,"km")
-print("Consumption: ",consumption,"L/km")
-print("Fuel price: ",fuel_price,"L/km")
-
-print ("-" * 30)
-print("Litres: ",litres_needed,"L")
-print("Cost: ",fuel_cost,"KZT")
-print ("Cost per km: ",cost_per_km,"KZT")
+print("Driver: ", driver_name)
+print("Destination: ", destination.upper())
+print("Distance: ", distance,"km")
+print("Fuel cost: ", fuel_cost,"KZT")
+print("Category: ", category)
 print("=" * 30)
 
-print("Trip longer than 300 km: ",distance> 300)
-print ("Ful cost above 5000 KZT: " , fuel_cost > 5000)
+print("\n Cost breakdown: ")
+
+for km in range(100,int(distance) + 1,100):
+    fuel_cost = (km / 100) * consumption * price
+    print(km,"km ->",fuel_cost,"KZT")
+
+print("\nDestination uppercase: ", destination.upper())
+print("Destination lowercase: ", destination.lower())
+print("Length :",len(destination))
+
+count_a = destination.lower().count('a')
+print("Letter 'a' count :", count_a)
+
+
